@@ -1,0 +1,23 @@
+<%= provide(:title, 'Make It Snappy Q&A') %>
+<div id="ask">
+	<h1>Ask a Question</h1>
+	
+	<% if logged_in? %>
+		<%= render 'question_form' %>
+	<% else %>
+		<p>Please login to ask or answer questions.</p>
+	<% end %>
+</div><!-- end ask -->
+
+<div id="questions">
+	<h2>Unsolved Questions</h2>
+
+	<% if @questions.any? %>
+		<ul>
+			<%= render @questions %>
+		</ul>
+		<%= will_paginate %>
+	<% else %>
+		<p>No questions have been asked</p>
+	<% end %>
+</div><!-- end questions -->
